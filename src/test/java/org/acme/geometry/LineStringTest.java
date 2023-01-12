@@ -63,4 +63,12 @@ class LineStringTest {
         Assert.assertEquals(10, lineString.getPointN(1).getCoordinate().getX());
         Assert.assertEquals(6, lineString.getPointN(1).getCoordinate().getY());
     }
+
+    @Test
+    void testClone() {
+        LineString lineString1 = new LineString();
+        LineString lineString2 = (LineString) lineString1.clone();
+        Assert.assertEquals(lineString1, lineString2);
+        Assert.assertNotSame(lineString1, lineString2);
+    }
 }

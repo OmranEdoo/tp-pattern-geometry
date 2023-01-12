@@ -31,4 +31,11 @@ public class Point implements Geometry {
         Coordinate translatedCoords = new Coordinate(this.getCoordinate().getX() + dx, this.getCoordinate().getY() + dy);
         this.coordinate = translatedCoords;
     }
+
+    @Override
+    public Geometry clone() {
+        Point copy = new Point(this.getCoordinate());
+        return copy;
+    }
+
 }
