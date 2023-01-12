@@ -1,7 +1,9 @@
 package org.acme.geometry;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,14 +40,14 @@ public class WktWriterTest {
         Assert.assertEquals("LINESTRING EMPTY", new WktWriter().write((Geometry) lineString));
     }
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     @Test
     public void testWriteInvalidGeometry() {
-        try {
-            new WktWriter().write( null);
-            Assert.fail("geometry type not supported");
-        } catch(RuntimeException e) {
-
-        }
+        thrown.expect(RuntimeException.class);
+        thrown.expectMessage("geometry type not supported");
+        new WktWriter().write( null);
     }
 
 }

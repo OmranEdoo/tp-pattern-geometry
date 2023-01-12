@@ -1,19 +1,17 @@
 package org.acme.geometry;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-class LineStringTest {
+public class LineStringTest {
 
     public static final double EPSILON = 1.0e-15;
 
     @Test
-    void testGetNumPoints() {
+    public void testGetNumPoints() {
         List<Point> points = new ArrayList<>();
         Coordinate coordinatePoint1 = new Coordinate(1, 2);
         Coordinate coordinatePoint2 = new Coordinate(3, 4);
@@ -24,7 +22,7 @@ class LineStringTest {
     }
 
     @Test
-    void testGetPointN() {
+    public void testGetPointN() {
         List<Point> points = new ArrayList<>();
         Coordinate coordinatePoint1 = new Coordinate(1, 2);
         Coordinate coordinatePoint2 = new Coordinate(3, 4);
@@ -38,14 +36,14 @@ class LineStringTest {
     }
 
     @Test
-    void testGetType() {
+    public void testGetType() {
         Coordinate coordinate = new Coordinate();
         LineString lineString = new LineString();
         Assert.assertEquals("LineString", lineString.getType());
     }
 
     @Test
-    void testIsEmpty() {
+    public void testIsEmpty() {
         Coordinate coordinate = new Coordinate();
         LineString lineString = new LineString();
 
@@ -53,7 +51,7 @@ class LineStringTest {
     }
 
     @Test
-    void testTranslate() {
+    public void testTranslate() {
         Coordinate coordinateP1 = new Coordinate(1, 2);
         Coordinate coordinateP2 = new Coordinate(6, -1);
         Point point1 = new Point(coordinateP1);
@@ -70,7 +68,7 @@ class LineStringTest {
     }
 
     @Test
-    void testClone() {
+    public void testClone() {
         Coordinate coordinateP1 = new Coordinate(1, 2);
         Coordinate coordinateP2 = new Coordinate(6, -1);
         Point point1 = new Point(coordinateP1);
@@ -88,7 +86,7 @@ class LineStringTest {
     }
 
     @Test
-    void testGetEnvelope() {
+    public void testGetEnvelope() {
         Coordinate coordinateP1 = new Coordinate(1, 2);
         Coordinate coordinateP2 = new Coordinate(10, 20);
         Point point1 = new Point(coordinateP1);

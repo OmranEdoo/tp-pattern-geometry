@@ -1,16 +1,14 @@
 package org.acme.geometry;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-class PointTest {
+public class PointTest {
 
 	public static final double EPSILON = 1.0e-15;
 
 	@Test
-	void testPointConstructor() {
+	public void testPointConstructor() {
 		Coordinate coordinate = new Coordinate(4, 2);
 		Point point = new Point(coordinate);
 		Assert.assertNotNull(point);
@@ -18,30 +16,39 @@ class PointTest {
 	}
 	
 	@Test
-	void testPointDefaultConstructor() {
+	public void testPointDefaultConstructor() {
 		Point point = new Point();
 		Assert.assertNotNull(point);
         Coordinate coordinate = new Coordinate();
 		Assert.assertEquals(coordinate.getX(), point.getCoordinate().getX(), EPSILON);
 		Assert.assertEquals(coordinate.getY(), point.getCoordinate().getY(), EPSILON);
     }
-	
+
 	@Test
-	void testGetType() {
+	public void testGetCoordinate() {
+		Coordinate coordinate = new Coordinate(4, 5);
+		Point point = new Point(coordinate);
+		Assert.assertEquals(4, point.getCoordinate().getX(), EPSILON);
+		Assert.assertEquals(5, point.getCoordinate().getY(), EPSILON);
+	}
+
+
+	@Test
+	public void testGetType() {
 		Coordinate coordinate = new Coordinate();
 		Point point = new Point(coordinate);
 		Assert.assertEquals("Point", point.getType());
 	}
 
 	@Test
-	void testIsEmpty() {
+	public void testIsEmpty() {
 		Coordinate coordinate = new Coordinate();
 		Point point = new Point(coordinate);
 		Assert.assertNotNull(point.isEmpty());
 	}
 
 	@Test
-	void testTranslate() {
+	public void testTranslate() {
 		Coordinate coordinate = new Coordinate(1, 2);
 		Point point = new Point(coordinate);
 		point.translate(4, 7);
@@ -50,7 +57,7 @@ class PointTest {
 	}
 
 	@Test
-	void testClone() {
+	public void testClone() {
 		Coordinate coordinate = new Coordinate(1, 2);
 		Point point1 = new Point(coordinate);
 		Point point2 = (Point) point1.clone();
@@ -61,7 +68,7 @@ class PointTest {
 	}
 
 	@Test
-	void testGetEnvelope() {
+	public void testGetEnvelope() {
 		Coordinate coordinate = new Coordinate(1, 2);
 		Point point = new Point(coordinate);
 		Envelope envelope = point.getEnvelope();
