@@ -36,4 +36,13 @@ class PointTest {
 		Point point = new Point(coordinate);
 		Assert.assertNotNull(point.isEmpty());
 	}
+
+	@Test
+	void testTranslate() {
+		Coordinate coordinate = new Coordinate(1, 2);
+		Point point = new Point(coordinate);
+		point.translate(4, 7);
+		Assert.assertEquals(5, point.getCoordinate().getX());
+		Assert.assertEquals(9, point.getCoordinate().getY());
+	}
 }

@@ -46,4 +46,21 @@ class LineStringTest {
 
         Assert.assertNotNull(lineString.isEmpty());
     }
+
+    @Test
+    void testTranslate() {
+        Coordinate coordinateP1 = new Coordinate(1, 2);
+        Coordinate coordinateP2 = new Coordinate(6, -1);
+        Point point1 = new Point(coordinateP1);
+        Point point2 = new Point(coordinateP2);
+        List<Point> listePoints = new ArrayList<>();
+        listePoints.add(point1);
+        listePoints.add(point2);
+        LineString lineString = new LineString(listePoints);
+        lineString.translate(4, 7);
+        Assert.assertEquals(5, lineString.getPointN(0).getCoordinate().getX());
+        Assert.assertEquals(9, lineString.getPointN(0).getCoordinate().getY());
+        Assert.assertEquals(10, lineString.getPointN(1).getCoordinate().getX());
+        Assert.assertEquals(6, lineString.getPointN(1).getCoordinate().getY());
+    }
 }

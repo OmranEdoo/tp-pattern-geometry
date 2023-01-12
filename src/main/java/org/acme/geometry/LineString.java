@@ -38,5 +38,11 @@ public class LineString implements Geometry {
         return false;
     }
 
+    @Override
+    public void translate(double dx, double dy) {
+        for (int i = 0; i < this.getNumPoints(); i++){
+            this.getPointN(i).translate(dx, dy);
+        }
+    }
 
 }
