@@ -86,4 +86,21 @@ class LineStringTest {
         Assert.assertEquals(-1, lineString2.getPointN(1).getCoordinate().getY(), EPSILON);
         Assert.assertNotSame(lineString1, lineString2);
     }
+
+    @Test
+    void testGetEnvelope() {
+        Coordinate coordinateP1 = new Coordinate(1, 2);
+        Coordinate coordinateP2 = new Coordinate(10, 20);
+        Point point1 = new Point(coordinateP1);
+        Point point2 = new Point(coordinateP2);
+        List<Point> listePoints = new ArrayList<Point>();
+        listePoints.add(point1);
+        listePoints.add(point2);
+        LineString lineString = new LineString(listePoints);
+        Envelope envelope = lineString.getEnvelope();
+        Assert.assertEquals(1, envelope.getXmin(), EPSILON);
+        Assert.assertEquals(2, envelope.getYmin(), EPSILON);
+        Assert.assertEquals(10, envelope.getXmax(), EPSILON);
+        Assert.assertEquals(20, envelope.getYmax(), EPSILON);
+    }
 }

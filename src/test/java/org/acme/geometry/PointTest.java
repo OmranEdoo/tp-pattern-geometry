@@ -59,4 +59,15 @@ class PointTest {
 		Assert.assertEquals(point1.getType(), point2.getType());
 		Assert.assertNotSame(point1, point2);
 	}
+
+	@Test
+	void testGetEnvelope() {
+		Coordinate coordinate = new Coordinate(1, 2);
+		Point point = new Point(coordinate);
+		Envelope envelope = point.getEnvelope();
+		Assert.assertEquals(1, envelope.getXmin(), EPSILON);
+		Assert.assertEquals(2, envelope.getYmin(), EPSILON);
+		Assert.assertEquals(1, envelope.getXmax(), EPSILON);
+		Assert.assertEquals(2, envelope.getYmax(), EPSILON);
+	}
 }

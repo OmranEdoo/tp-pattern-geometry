@@ -8,6 +8,13 @@ public class EnvelopeBuilderTest {
     public static final double EPSILON = 1.0e-15;
 
     @Test
+    public void testDefaultConstructor(){
+        EnvelopeBuilder builder = new EnvelopeBuilder();
+        Assert.assertNotNull(builder.getXVals());
+        Assert.assertNotNull(builder.getYVals());
+    }
+
+    @Test
     void testInsert() {
         EnvelopeBuilder builder = new EnvelopeBuilder();
         builder.insert(new Coordinate(1.0,3.0));
