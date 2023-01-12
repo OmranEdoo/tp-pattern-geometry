@@ -24,11 +24,16 @@ class PointTest {
     }
 	
 	@Test
-	void testGetCoordinate() {
+	void testGetType() {
 		Coordinate coordinate = new Coordinate();
 		Point point = new Point(coordinate);
-		Assert.assertEquals(coordinate, point.getCoordinate());
-		coordinate = null;
-		Assert.assertNull(point.getCoordinate());
+		Assert.assertEquals("Point", point.getType());
+	}
+
+	@Test
+	void testIsEmpty() {
+		Coordinate coordinate = new Coordinate();
+		Point point = new Point(coordinate);
+		Assert.assertNotNull(point.isEmpty());
 	}
 }

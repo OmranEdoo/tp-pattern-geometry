@@ -4,7 +4,7 @@ public class Point implements Geometry {
     private Coordinate coordinate;
 
     public Point() {
-        
+        this.coordinate = new Coordinate();
     }
 
     public Point(Coordinate coordinate) {
@@ -15,8 +15,14 @@ public class Point implements Geometry {
         return this.coordinate;
     }
 
+
     @Override
-    public double getType() {
-        return 0;
+    public String getType() {
+        return "Point";
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.coordinate.isEmpty();
     }
 }

@@ -32,4 +32,18 @@ class LineStringTest {
         Assert.assertEquals(new Point(coordinatePoint2), lineString.getPointN(1));
     }
 
+    @Test
+    void testGetType() {
+        Coordinate coordinate = new Coordinate();
+        LineString lineString = new LineString();
+        Assert.assertEquals("LineString", lineString.getType());
+    }
+
+    @Test
+    void testIsEmpty() {
+        Coordinate coordinate = new Coordinate();
+        LineString lineString = new LineString();
+
+        Assert.assertNotNull(lineString.isEmpty());
+    }
 }
