@@ -3,7 +3,7 @@ package org.acme.geometry;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class PointTest {
 

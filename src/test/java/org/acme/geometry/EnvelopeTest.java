@@ -1,14 +1,14 @@
 package org.acme.geometry;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class EnvelopeTest {
 
     public static final double EPSILON = 1.0e-15;
 
     @Test
-    void testEnvelopeConstructor() {
+    public void testEnvelopeConstructor() {
         Coordinate bottomLeft = new Coordinate(1, 0);
         Coordinate topRight = new Coordinate(4, 2);
         Envelope envelope = new Envelope(bottomLeft, topRight);
@@ -20,7 +20,7 @@ public class EnvelopeTest {
     }
 
     @Test
-    void testEnvelopeDefaultConstructor() {
+    public void testEnvelopeDefaultConstructor() {
         Envelope envelope = new Envelope();
         Assert.assertNotNull(envelope);
         Assert.assertEquals(Double.NaN, envelope.getXmin(), EPSILON);
@@ -30,13 +30,13 @@ public class EnvelopeTest {
     }
 
     @Test
-    void testIsEmpty() {
+    public void testIsEmpty() {
         Envelope envelope = new Envelope();
         Assert.assertNotNull(envelope.isEmpty());
     }
 
     @Test
-    void testGetXmin() {
+    public void testGetXmin() {
         Coordinate bottomLeft = new Coordinate(1, 0);
         Coordinate topRight = new Coordinate(4, 2);
         Envelope envelope = new Envelope(bottomLeft, topRight);
@@ -44,7 +44,7 @@ public class EnvelopeTest {
     }
 
     @Test
-    void testGetYmin() {
+    public void testGetYmin() {
         Coordinate bottomLeft = new Coordinate(1, 0);
         Coordinate topRight = new Coordinate(4, 2);
         Envelope envelope = new Envelope(bottomLeft, topRight);
@@ -52,7 +52,7 @@ public class EnvelopeTest {
     }
 
     @Test
-    void testGetXmax() {
+    public void testGetXmax() {
         Coordinate bottomLeft = new Coordinate(1, 0);
         Coordinate topRight = new Coordinate(4, 2);
         Envelope envelope = new Envelope(bottomLeft, topRight);
@@ -60,7 +60,7 @@ public class EnvelopeTest {
     }
 
     @Test
-    void testGetYmax() {
+    public void testGetYmax() {
         Coordinate bottomLeft = new Coordinate(1, 0);
         Coordinate topRight = new Coordinate(4, 2);
         Envelope envelope = new Envelope(bottomLeft, topRight);

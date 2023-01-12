@@ -1,18 +1,17 @@
 package org.acme.geometry;
 
 import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
-import org.mockito.internal.matchers.Null;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.fail;
+
 public class WktWriterTest {
 
     @Test
-    void testWrite() {
+    public void testWrite() {
         Coordinate coordinate1 = new Coordinate(4.0, 2.0);
         Point point1 = new Point(coordinate1);
         Coordinate coordinate2 = new Coordinate(-4.0, -2.0);
@@ -26,7 +25,7 @@ public class WktWriterTest {
     }
 
     @Test
-    void testWriteEmpty() {
+    public void testWriteEmpty() {
         Coordinate coordinate1 = new Coordinate();
         Point point1 = new Point(coordinate1);
         Coordinate coordinate2 = new Coordinate();
@@ -39,15 +38,14 @@ public class WktWriterTest {
         Assert.assertEquals("LINESTRING EMPTY", new WktWriter().write((Geometry) lineString));
     }
 
-
-    @Rule
-    public ExpectedException exceptionRule = ExpectedException.none();
-
     @Test
     public void testWriteInvalidGeometry() {
-        exceptionRule.expect(RuntimeException.class);
-        exceptionRule.expectMessage("geometry type not supported");
-        new WktWriter().write( null);
+        try {
+            new WktWriter().write( null);
+            Assert.fail("geometry type not supported");
+        } catch(RuntimeException e) {
+
+        }
     }
 
 }

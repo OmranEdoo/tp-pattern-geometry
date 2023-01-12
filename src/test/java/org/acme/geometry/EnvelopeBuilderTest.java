@@ -1,7 +1,7 @@
 package org.acme.geometry;
 
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class EnvelopeBuilderTest {
 
@@ -15,7 +15,7 @@ public class EnvelopeBuilderTest {
     }
 
     @Test
-    void testInsert() {
+    public void testInsert() {
         EnvelopeBuilder builder = new EnvelopeBuilder();
         builder.insert(new Coordinate(1.0,3.0));
         Assert.assertEquals(1.0, builder.getXVals().get(0), EPSILON);
@@ -23,7 +23,7 @@ public class EnvelopeBuilderTest {
     }
 
     @Test
-    void testBuild() {
+    public void testBuild() {
         EnvelopeBuilder builder = new EnvelopeBuilder();
         builder.insert(new Coordinate(0.0,1.0));
         builder.insert(new Coordinate(2.0,0.0));
