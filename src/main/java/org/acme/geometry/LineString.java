@@ -47,8 +47,7 @@ public class LineString implements Geometry {
 
     @Override
     public Geometry clone() {
-        LineString copy = new LineString(this.points);
-        return copy;
+        return new LineString(this.points);
     }
 
 }

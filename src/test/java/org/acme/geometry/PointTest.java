@@ -6,7 +6,9 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 class PointTest {
-	
+
+	public static final double EPSILON = 1.0e-15;
+
 	@Test
 	void testPointConstructor() {
 		Coordinate coordinate = new Coordinate(4, 2);
@@ -20,7 +22,8 @@ class PointTest {
 		Point point = new Point();
 		Assert.assertNotNull(point);
         Coordinate coordinate = new Coordinate();
-		Assert.assertEquals(coordinate, point.getCoordinate());
+		Assert.assertEquals(coordinate.getX(), point.getCoordinate().getX(), EPSILON);
+		Assert.assertEquals(coordinate.getY(), point.getCoordinate().getY(), EPSILON);
     }
 	
 	@Test
@@ -42,8 +45,8 @@ class PointTest {
 		Coordinate coordinate = new Coordinate(1, 2);
 		Point point = new Point(coordinate);
 		point.translate(4, 7);
-		Assert.assertEquals(5, point.getCoordinate().getX());
-		Assert.assertEquals(9, point.getCoordinate().getY());
+		Assert.assertEquals(5, point.getCoordinate().getX(), EPSILON);
+		Assert.assertEquals(9, point.getCoordinate().getY(), EPSILON);
 	}
 
 	@Test
@@ -51,7 +54,9 @@ class PointTest {
 		Coordinate coordinate = new Coordinate(1, 2);
 		Point point1 = new Point(coordinate);
 		Point point2 = (Point) point1.clone();
-		Assert.assertEquals(point1, point2);
+		Assert.assertEquals(point1.getCoordinate().getX(), point2.getCoordinate().getX(), EPSILON);
+		Assert.assertEquals(point1.getCoordinate().getY(), point2.getCoordinate().getY(), EPSILON);
+		Assert.assertEquals(point1.getType(), point2.getType());
 		Assert.assertNotSame(point1, point2);
 	}
 }

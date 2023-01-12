@@ -15,15 +15,15 @@ public class Coordinate {
     };
 
     public double getX() {
-        return x;
+        return this.x;
     }
 
     public double getY() {
-        return y;
+        return this.y;
     }
 
     public boolean isEmpty() {
-        return Double.isNaN(this.x) && Double.isNaN(this.y);
+        return Double.isNaN(this.x) || Double.isNaN(this.y);
     }
 
 }
