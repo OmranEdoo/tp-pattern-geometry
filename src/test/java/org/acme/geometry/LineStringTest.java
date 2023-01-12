@@ -1,8 +1,11 @@
+package org.acme.geometry;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 class LineStringTest {
@@ -15,7 +18,7 @@ class LineStringTest {
         points.add(new Point(coordinatePoint1));
         points.add(new Point(coordinatePoint2));
         LineString lineString = new LineString(points);
-        assertEquals(2, lineString.getNumPoints());
+        Assert.assertEquals(2, lineString.getNumPoints());
     }
 
     @Test
@@ -26,7 +29,7 @@ class LineStringTest {
         points.add(new Point(coordinatePoint1));
         points.add(new Point(coordinatePoint2));
         LineString lineString = new LineString(points);
-        assertEquals(new Point(3, 4), lineString.getPointN(1));
+        Assert.assertEquals(new Point(coordinatePoint2), lineString.getPointN(1));
     }
 
 }

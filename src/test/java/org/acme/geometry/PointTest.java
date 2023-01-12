@@ -1,5 +1,8 @@
+package org.acme.geometry;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 class PointTest {
@@ -8,24 +11,24 @@ class PointTest {
 	void testPointConstructor() {
 		Coordinate coordinate = new Coordinate(4, 2);
 		Point point = new Point(coordinate);
-		assertNotNull(point);
-		assertEquals(coordinate, point.getCoordinate());
+		Assert.assertNotNull(point);
+		Assert.assertEquals(coordinate, point.getCoordinate());
 	}
 	
 	@Test
 	void testPointDefaultConstructor() {
 		Point point = new Point();
-		assertNotNull(point);
+		Assert.assertNotNull(point);
         Coordinate coordinate = new Coordinate();
-        assertEquals(coordinate, point.getCoordinate());	
+		Assert.assertEquals(coordinate, point.getCoordinate());
     }
 	
 	@Test
 	void testGetCoordinate() {
 		Coordinate coordinate = new Coordinate();
 		Point point = new Point(coordinate);
-		assertEquals(coordinate, point.getCoordinate());
+		Assert.assertEquals(coordinate, point.getCoordinate());
 		coordinate = null;
-		assertNull(point.getCoordinate());
+		Assert.assertNull(point.getCoordinate());
 	}
 }

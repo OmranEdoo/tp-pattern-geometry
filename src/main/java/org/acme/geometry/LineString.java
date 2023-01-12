@@ -1,9 +1,9 @@
+package org.acme.geometry;
+
+import java.util.List;
+
 public class LineString implements Geometry {
     private List<Point> points;
-
-    public LineString(List<Point> points) {
-
-    }
 
     public LineString(List<Point> points) {
         this.points = points;
@@ -13,7 +13,12 @@ public class LineString implements Geometry {
         return points.size();
     }
 
-    public int getPointN(int n) {
+    public Point getPointN(int n) {
         return points.get(n);
+    }
+
+    @Override
+    public double getType() {
+        return 0;
     }
 }

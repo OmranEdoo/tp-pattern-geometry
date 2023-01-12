@@ -14,18 +14,11 @@ public class CoordinateTest {
 		Assert.assertEquals(0.0, coordinate.getY(), EPSILON);
 	}
 
-	@Test
-    void testDefaultConstructor() {
-        Coordinate coordinate = new Coordinate();
-        assertEquals(0.0, coordinate.getX(), EPSILON);
-        assertEquals(0.0, coordinate.getY(), EPSILON);
-    }
-
     @Test
-    void testParameterizedConstructor() {
+    public void testParameterizedConstructor() {
         Coordinate coordinate = new Coordinate(1.0, 2.0);
-        assertEquals(1.0, coordinate.getX()), EPSILON;
-        assertEquals(2.0, coordinate.getY()), EPSILON;
+        Assert.assertEquals(1.0, coordinate.getX(), EPSILON);
+        Assert.assertEquals(2.0, coordinate.getY(), EPSILON);
     }
 
 }
